@@ -1,11 +1,6 @@
-import serial
-ser1 = serial.Serial('/dev/ttyUSB0')
-ser1.baudrate = 115200
-ser2 = serial.Serial('/dev/ttyUSB1')
-ser2.baudrate = 115200
 while True:
-  output1 = ser1.readline()
-  output2 = ser2.readline()
-  ser1.write(output2)
-  ser2.write(output1)
+  p1 = Popen(['python', './ReadCOM.py', "/dev/ttyUSB0", "115200"], stdin=PIPE, stdout=PIPE, stderr=PIPE) # read COM1 permanently
+  p2 = Popen(['python', './ReadCOM.py', "/dev/ttyUSB1", "115200"], stdin=PIPE, stdout=PIPE, stderr=PIPE) # read COM2 permanently
+  print "received from COM1: %s" % p1.stdout.readline() # print output from ReadCOM.py for COM1
+  print "received from COM2: %s" % p2.stdout.readline() #
   
