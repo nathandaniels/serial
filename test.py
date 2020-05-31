@@ -1,9 +1,15 @@
 import serial
 from time import sleep
-ser = serial.Serial('/dev/ttyUSB1', timeout=1)
-ser.baudrate = 115200
+
+ser1 = serial.Serial('/dev/ttyUSB0', timeout=1)
+ser1.baudrate = 115200
+
+ser2 = serial.Serial('/dev/ttyUSB1', timeout=1)
+ser2.baudrate = 115200
+
 while True:
-  msg = 'test'
-  ser.write(msg)
-  sleep(0.5)
-  #ser.readline()
+  output1 = ser1.readline()
+  output2 = ser2.readline()
+  ser1.write(output2)
+  ser2.write(output1)
+  
