@@ -6,8 +6,8 @@ serialport1 = serial.Serial("/dev/ttyUSB1", 115200, timeout=0.5)
 while True:    
     command0 = serialport0.read()
     print str(command0)
-    seriaport1.write(command0.encode())
+    serialport1.write(command0.encode())
     command1 = serialport1.read()
     print (str(command1)
-    seriaport0.write(command1.encode())
+    serialport0.write(command1.encode())
 
