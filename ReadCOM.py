@@ -9,3 +9,4 @@ for _ in xrange(10)    # sys.stdin.readline()
 
     sys.stdout.write(output) # write output to stdout
     sys.stdout.flush()
+    ser.close()
