@@ -8,6 +8,6 @@ while True:
     print str(commandzero)
     serialportone.write(commandzero.encode())
     commandone = serialportone.read()
-    print (str(commandone)
+    print str(commandone)
     serialportzero.write(commandone.encode())
 
