@@ -1,12 +1,7 @@
 import serial
-ser = serial.Serial('/dev/ttyUSB0')
-ser.flushInput()
 
-while True:
-    try:
-        ser_bytes = ser.readline()
-        decoded_bytes = float(ser_bytes[0:len(ser_bytes)-2].decode("utf-8"))
-        print(decoded_bytes)
-    except:
-        print("Keyboard Interrupt")
-        break
+serialport = serial.Serial("/dev/ttyUSB0", 115200, timeout=0.5)
+
+while True:    
+    command = serialport.read()
+    print str(command)
